@@ -1,0 +1,24 @@
+#BACKEND
+backend/.env
+.qodo
+venv/
+env/
+/.idea/
+*.pyc
+*/__pycache__/
+/logs/
+.venv/
+/static/
+db.sqlite3
+*.log
+backend/media/
+
+
+
+#FRONTEND
+node_modules/
+frontend/.env
+
+
+# Vite cache
+.vite/
