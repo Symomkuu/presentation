@@ -28,8 +28,16 @@ class CustomTokenObtainPairView(TokenObtainPairView):
     serializer_class = CustomTokenObtainPairSerializer
 
 class UserInfoView(APIView):
+    """
+    API view to retrieve information about the authenticated user.
+    Requires authentication.
+    """
     permission_classes = [IsAuthenticated]
 
     def get(self, request):
+        """
+        Handle GET request to return the authenticated user's information.
+        Returns serialized user data.
+        """
         serializer = UserInfoSerializer(request.user)
         return Response(serializer.data)
