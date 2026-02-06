@@ -7,6 +7,7 @@ export default function Login() {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [message, setMessage] = useState("");
+	const [isSuccess, setIsSuccess] = useState(false);
 	const [loading, setLoading] = useState(false);
 	const { login } = useAuth();
 
@@ -15,17 +16,21 @@ export default function Login() {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		setMessage("");
+		setIsSuccess(false);
 		setLoading(true);
 		try {
 			const data = await loginUser(email, password);
 			if (data.access && data.refresh) {
 				login(data.access);
 				setMessage("Login successful!");
+				setIsSuccess(true);
 			} else {
 				setMessage(data.detail || "Login failed");
+				setIsSuccess(false);
 			}
 		} catch (err) {
 			setMessage(err.response?.data?.detail || err.message || "Login failed");
+			setIsSuccess(false);
 		}
 		setLoading(false);
 	};
@@ -56,7 +61,9 @@ export default function Login() {
 						disabled={loading}
 					/>
 					<button type="submit" disabled={loading}>{loading ? "Logging in..." : "Login"}</button>
-					{message && <p className="message">{message}</p>}
+					{message && (
+						<p className={`message ${isSuccess ? 'success' : 'error'}`}>{message}</p>
+					)}
 					<div style={{ marginTop: "1rem" }}>
 						<span>Don't have an account? </span>
 						<Link to="/register">Create</Link>

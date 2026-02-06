@@ -1,4 +1,3 @@
-
 # Presentation Project
 
 ## Project Overview
@@ -59,26 +58,26 @@ to authenticated users.
 - Improve frontend UX and form validation
 - Add more comprehensive test coverage
 
-1. **Clone the repository:**
+## Quickstart (Backend)
+
+1. Clone the repository:
    ```bash
    git clone <repo-url>
    cd presentation
    ```
 
-## Prerequisites
-- Python 3.12.8
-- Node.js v24.4.1
-
----
-
-## Backend Setup (Django)
-
-1. Navigate to the backend folder:
+2. Navigate to the backend folder:
    ```bash
    cd backend
    ```
 
-2. Create a virtual environment (optional but recommended):
+3. Create a `.env` file in the `backend/` directory **before** installing dependencies or running migrations. Example:
+   ```env
+   SECRET_KEY=your_secret_key
+   DEBUG=True
+   ```
+
+4. (Optional but recommended) Create a virtual environment:
    ```bash
    python -m venv venv
    # Activate:
@@ -88,17 +87,17 @@ to authenticated users.
    source venv/bin/activate
    ```
 
-3. Install dependencies:
+5. Install dependencies:
    ```bash
    pip install -r requirements.txt
    ```
 
-4. Apply migrations:
+6. Apply migrations:
    ```bash
    python manage.py migrate
    ```
 
-5. Run the development server:
+7. Run the development server:
    ```bash
    python manage.py runserver
    ```
@@ -112,29 +111,20 @@ to authenticated users.
    cd frontend
    ```
 
-2. Install dependencies:
+2. Create a `.env` file in the `frontend/` directory with:
+   ```env
+   VITE_BACKEND_URL=http://localhost:8000
+   ```
+
+3. Install dependencies:
    ```bash
    npm install
    ```
 
-3. Start the development server:
+4. Start the development server:
    ```bash
    npm run dev
    ```
-
----
-
-## Environment Variables
-
-- Backend: Create a `.env` file in `backend/` with at least:
-  ```env
-  SECRET_KEY=your_secret_key
-  DEBUG=True
-  ```
-- Frontend: Set `VITE_BACKEND_URL` in `.env` in `frontend/`:
-  ```env
-  VITE_BACKEND_URL=http://localhost:8000
-  ```
 
 ---
 
