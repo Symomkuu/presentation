@@ -81,7 +81,7 @@ to authenticated users.
    python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
    ```
 
-4. (Optional but recommended) Create a virtual environment:
+4. Create a virtual environment:
    ```bash
    python -m venv venv
    # Activate:
@@ -128,6 +128,7 @@ to authenticated users.
 4. Start the development server:
    ```bash
    npm run dev
+
    ```
 
 ---
