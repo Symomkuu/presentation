@@ -73,8 +73,12 @@ to authenticated users.
 
 3. Create a `.env` file in the `backend/` directory **before** installing dependencies or running migrations. Example:
    ```env
-   SECRET_KEY=your_secret_key
+   SECRET_KEY=your_secret_key  # Generate one with the command below
    DEBUG=True
+   ```
+   To generate a secure secret key, run:
+   ```bash
+   python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
    ```
 
 4. (Optional but recommended) Create a virtual environment:
