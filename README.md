@@ -106,6 +106,18 @@ to authenticated users.
    python manage.py runserver
    ```
 
+8. (Optional) To access the Django admin panel and view users:
+   - Create a superuser if you haven't already:
+     ```bash
+     python manage.py createsuperuser
+     ```
+   - Start the development server (if not already running):
+     ```bash
+     python manage.py runserver
+     ```
+   - Visit the Django admin at: http://localhost:8000/admin/
+   - Log in with your superuser credentials. You can view and manage users from the Users section.
+
 ---
 
 ## Frontend Setup (React + Vite)
